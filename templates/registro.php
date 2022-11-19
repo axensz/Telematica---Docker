@@ -177,7 +177,7 @@
         $nombre=$_POST['nombre'];
         $email=$_POST['email'];
         $password=$_POST['password'];
-        $fp = fopen('base_datos.txt', 'a');
+        $fp = fopen('/myapp/base_datos.txt', 'a');
         fwrite($fp, $nombre);
         fwrite($fp, "|");
         fwrite($fp, $email);
@@ -192,10 +192,10 @@
                     alert('Registrado exitosamente')
                 </script>";
 
-        $archivo1 = fopen("/home/ubuntu/Telematica---Docker/templates/contadorusuario.txt", "r");
+        $archivo1 = fopen("/myapp/contadorusuario.txt", "r");
         $numerousuario = intval(fgets($archivo1) + 1);
         $numeropuerto = intval(fgets($archivo1) + 1);
-        $archivo1 = fopen("/home/ubuntu/Telematica---Docker/templates/contadorusuario.txt", "w");
+        $archivo1 = fopen("/myapp/contadorusuario.txt", "w");
         fwrite($archivo1, $numerousuario);
         fwrite($archivo1, "\n");
         fwrite($archivo1, $numeropuerto);
