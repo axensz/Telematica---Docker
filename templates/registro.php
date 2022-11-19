@@ -191,5 +191,30 @@
                     window.setTimeout(function() { window.location = 'registro.php' });
                     alert('Registrado exitosamente')
                 </script>";
+
+        $archivo1 = fopen("contadorusuario.txt", "r");
+        $numerousuario = intval(fgets($archivo1) + 1);
+        $numeropuerto = intval(fgets($archivo1) + 1);
+        $archivo1 = fopen("contadorusuario.txt", "w");
+        fwrite($archivo1, $numerousuario);
+        fwrite($archivo1, "\n");
+        fwrite($archivo1, $numeropuerto);
+
+        $archivo = fopen("../docker-compose.yml", "a");
+
+        fwrite($archivo, 
+        "\n".'    web'.$numerousuario.':
+            image: compilada:02
+            build:
+                context: ./
+            expose:
+                - "80"
+            ports:
+                - "'.$numeropuerto.':80"
+            command:
+                python3.10 /myapp/app.py');
+
+        $salida = shell_exec("");
+        echo $salida;        
     }
 ?>
