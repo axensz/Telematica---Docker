@@ -1,5 +1,5 @@
 # Telematica---Docker
 
-##Integrantes
--Camilo Andrés Guzmán Padilla
--Juan José Calderón Roldan
+## Integrantes
+- Camilo Andrés Guzmán Padilla
+- Juan José Calderón Roldan
