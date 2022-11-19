@@ -191,6 +191,5 @@
                     window.setTimeout(function() { window.location = 'registro.php' });
                     alert('Registrado exitosamente')
                 </script>";
-        
     }
 ?>

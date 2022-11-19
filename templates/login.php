@@ -161,6 +161,7 @@
     }
 </style>
 </html>
+
 <?php
 if(isset($_POST['email']) && isset($_POST['password']))
 {
@@ -169,35 +170,35 @@ if(isset($_POST['email']) && isset($_POST['password']))
     $password=$_POST['password'];
     $archivo = fopen("base_datos.txt", "r") or die("¡Error al leer el archivo!");;
     $separador = "|";
-    $nombre="";
+    $traer = fgets($archivo);
+    $booleano = false;
+
     while(!feof($archivo)){
-
-        $traer = fgets($archivo);
+        
         $separada = explode($separador, $traer);
-
-        if(in_array($email, $separada) && in_array($password, $separada))
-        {
-            $posicion = array_search($email, $separada);
-            $posicion2 = array_search($password, $separada);
-            if($posicion == true && $posicion2 == true){
-                $nombre = $separada[0];
-                
-                print "<script>
-                            window.setTimeout(function() { window.location = 'blank.php' });
-                            alert('Usuario Encontrado exitosamente')
-                        </script>";
-                return $email.$nombre;
-            }
-        }
-        else {
-            echo $email.$traer;
+        if($separada[1]==$email && $separada[2]==$password) {
+            $booleano=true;
+            break;
             print "<script>
-                    //window.setTimeout(function() { window.location = 'login.php' });
-                    alert('Usuario no encontrado')
-                   </script>";
-            return;
+                alert('Usuario Encontrado exitosamente' + $booleano)
+            </script>";
         }
+        $traer = fgets($archivo);
     }
     fclose($archivo);
-}   
+
+    if($booleano == false){
+        print "<script>
+                    window.setTimeout(function() { window.location = 'login.php' });
+                    alert('Email o Contraseña incorrecta.')
+                </script>";
+    }else{
+        print "<script>
+                    window.setTimeout(function() { window.location = 'blank.php' });
+                    alert('Usuario encontrado exitosamente.')
+                </script>";
+        return $email.$nombre.$password;
+
+    }
+} 
 ?>
