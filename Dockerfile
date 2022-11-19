@@ -3,6 +3,11 @@ RUN apt update
 RUN apt install python3.10 -y
 RUN apt install python3-pip -y
 RUN pip3.10 install flask
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository -y ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt install -y python3.8
 WORKDIR /myapp/
 COPY app.py /myapp/app.py
 COPY templates/index.php /myapp/index.php

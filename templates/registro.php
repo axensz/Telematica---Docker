@@ -177,7 +177,7 @@
         $nombre=$_POST['nombre'];
         $email=$_POST['email'];
         $password=$_POST['password'];
-        $fp = fopen('/var/www/html/base_datos.txt', 'a');
+        $fp = fopen('base_datos.txt', 'a');
         fwrite($fp, $nombre);
         fwrite($fp, "|");
         fwrite($fp, $email);
