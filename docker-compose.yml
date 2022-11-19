@@ -1,11 +1,11 @@
 services:
     web:
-        image: compilada:01
+        image: compilada:02
+        build:
+            context: ./
         expose:
             - "80"
         ports:
             - "80:80"
         command:
             python3.10 /myapp/app.py
-
-    

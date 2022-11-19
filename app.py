@@ -1,16 +1,16 @@
 from flask import Flask, render_template
 
-app = Flask(__name__)
+app=Flask(__name__,template_folder='templates')
 
 @app.route('/')
 def index():
     return render_template('index.php')
 
-@app.route('/registro')
+@app.route('/registro/')
 def registro():
     return render_template('registro.php')
 
-@app.route('/iniciosesion')
+@app.route('/iniciosesion/')
 def login():
     return render_template('login.php')
 
