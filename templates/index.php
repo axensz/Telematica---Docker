@@ -52,8 +52,8 @@
         <hr class="w3-border-grey">
         <p class="w3-large w3-center">Bienvenidos a la mejor red social</p>
         <div class="w3-large w3-center">
-            <a href="login.php"><button class="button" type="submit">Inicia Sesion</button></a>
-            <a href="registro.php"><button class="button" type="submit">Registrate</button></a>
+            <a href="/iniciosesion/"><button class="button" type="submit">Inicia Sesion</button></a>
+            <a href="/registro/"><button class="button" type="submit">Registrate</button></a>
         </div>
     </div>
     </div> 

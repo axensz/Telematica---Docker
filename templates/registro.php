@@ -188,7 +188,7 @@
     if($variable == 1){
         
         print "<script>
-                    window.setTimeout(function() { window.location = 'registro.php' });
+                    window.setTimeout(function() { window.location = '/registro/' });
                     alert('Registrado exitosamente')
                 </script>";
 

@@ -7,5 +7,3 @@ services:
             - "80"
         ports:
             - "80:80"
-        command:
-            python3.10 /myapp/app.py
